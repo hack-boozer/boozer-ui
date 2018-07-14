@@ -8,6 +8,14 @@ import VueOnsen from 'vue-onsenui'
 import store from './store'
 import App from './App'
 
+import VueRouter from 'vue-router'
+import routes from './routes'
+
+Vue.use(VueRouter)
+const router = new VueRouter({
+  routes: routes
+})
+
 Vue.config.productionTip = false
 
 Vue.use(VueOnsen)
@@ -17,5 +25,6 @@ new Vue({
   el: '#app',
   store,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  router
 })
