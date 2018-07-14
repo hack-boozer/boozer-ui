@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     addPhoto (e) {
-      console.log(e)
       let files = e.target.files || e.dataTransfer.files
       this.createImage(files[0])
     },
