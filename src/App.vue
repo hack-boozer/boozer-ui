@@ -1,11 +1,11 @@
 <template>
   <v-ons-page id="app">
     <v-ons-splitter>
-      <v-ons-splitter-side swipeable collapse width="250px"
+      <!-- <v-ons-splitter-side swipeable collapse width="250px"
         :animation="$ons.platform.isAndroid() ? 'overlay' : 'reveal'"
         :open.sync="menuIsOpen">
         <menu-page></menu-page>
-      </v-ons-splitter-side>
+      </v-ons-splitter-side> -->
 
       <v-ons-splitter-content>
         <router-view></router-view>
