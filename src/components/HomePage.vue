@@ -3,43 +3,101 @@
     <v-ons-toolbar class="home-toolbar">
       <div class="left">
         <v-ons-toolbar-button @click="$store.commit('splitter/toggle')">
-          <v-ons-icon icon="ion-navicon, material:md-menu"></v-ons-icon>
+          <!-- <v-ons-icon icon="ion-navicon, material:md-menu"></v-ons-icon> -->
         </v-ons-toolbar-button>
       </div>
       <div class="center">{{ msg }}</div>
     </v-ons-toolbar>
 
     <div class="header">
-      <img src="../assets/logo.png">
+        <v-ons-list>
+          <v-ons-list-item>
+            <div class="center">
+              <p>
+                <v-ons-search-input placeholder="Search Liquor"></v-ons-search-input>
+              </p>
+              <p>{{ query }}</p>
+            </div>
+          </v-ons-list-item>
+        </v-ons-list>
     </div>
-
-    <v-ons-list-title>Vue.js Essential Links</v-ons-list-title>
-    <v-ons-list>
-      <v-ons-list-item v-for="item in essentialLinks" @click="goTo(item.link)" :key="item.link">
-        <div class="left"><v-ons-icon fixed-width :icon="item.icon"></v-ons-icon></div>
-        <div class="center">{{ item.label }}</div>
-        <div class="right"><v-ons-icon icon="fa-external-link"></v-ons-icon></div>
-      </v-ons-list-item>
-    </v-ons-list>
-
-    <v-ons-list-title>Vue.js Ecosystem</v-ons-list-title>
     <v-ons-row>
       <v-ons-col>
-        <v-ons-card @click="goTo('http://router.vuejs.org/')">vue-router</v-ons-card>
+        <v-ons-card>
+          <img src="../assets/sake.png" alt="Onsen UI" style="width: 100%">
+          <div class="title">
+            <p>{{ nickname }}</p>
+          </div>
+          <div class="content">
+            <div>
+                <v-ons-icon style="color: red;" size="20px" icon="md-face"></v-ons-icon>
+              <v-ons-icon style="color: blue;" size="20px" icon="md-face"></v-ons-icon>
+            </div>
+            <v-ons-list>
+              <v-ons-list-header>コメント</v-ons-list-header>
+              <v-ons-list-item>さけ</v-ons-list-item>
+            </v-ons-list>
+          </div>
+        </v-ons-card>
       </v-ons-col>
       <v-ons-col>
-        <v-ons-card @click="goTo('http://vuex.vuejs.org/')">vuex</v-ons-card>
+        <v-ons-card>
+          <img src="../assets/sake2.png" alt="Onsen UI" style="width: 100%">
+          <div class="title">
+            <p>{{ nickname }}</p>
+          </div>
+          <div class="content">
+            <div>
+                <v-ons-icon style="color: red;" size="20px" icon="md-face"></v-ons-icon>
+              <v-ons-icon style="color: blue;" size="20px" icon="md-face"></v-ons-icon>
+            </div>
+            <v-ons-list>
+              <v-ons-list-header>コメント</v-ons-list-header>
+              <v-ons-list-item>さけ</v-ons-list-item>
+            </v-ons-list>
+          </div>
+        </v-ons-card>
+        </v-ons-col>
+      </v-ons-row>
+      <v-ons-row>
+        <v-ons-col>
+        <v-ons-card>
+          <img src="../assets/sake3.png" alt="Onsen UI" style="width: 100%">
+          <div class="title">
+            <p>{{ nickname }}</p>
+          </div>
+          <div class="content">
+            <div>
+                <v-ons-icon style="color: red;" size="20px" icon="md-face"></v-ons-icon>
+              <v-ons-icon style="color: blue;" size="20px" icon="md-face"></v-ons-icon>
+            </div>
+            <v-ons-list>
+              <v-ons-list-header>コメント</v-ons-list-header>
+              <v-ons-list-item>さけ</v-ons-list-item>
+            </v-ons-list>
+          </div>
+        </v-ons-card>
+      </v-ons-col>
+      <v-ons-col>
+        <v-ons-card>
+          <img src="../assets/sake4.png" alt="Onsen UI" style="width: 100%">
+          <div class="title">
+            <p>{{ nickname }}</p>
+          </div>
+          <div class="content">
+            <div>
+                <v-ons-icon style="color: red;" size="20px" icon="md-face"></v-ons-icon>
+              <v-ons-icon style="color: blue;" size="20px" icon="md-face"></v-ons-icon>
+            </div>
+            <v-ons-list>
+              <v-ons-list-header>コメント</v-ons-list-header>
+              <v-ons-list-item>さけ</v-ons-list-item>
+            </v-ons-list>
+          </div>
+        </v-ons-card>
       </v-ons-col>
     </v-ons-row>
-    <v-ons-row>
-      <v-ons-col>
-        <v-ons-card @click="goTo('http://vue-loader.vuejs.org/')">vue-loader</v-ons-card>
-      </v-ons-col>
-      <v-ons-col>
-        <v-ons-card @click="goTo('https://github.com/vuejs/awesome-vue')">awesome-vue</v-ons-card>
-      </v-ons-col>
-    </v-ons-row>
-
+    
   </v-ons-page>
 </template>
 
@@ -48,7 +106,8 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'Welcome',
+      nickname: '',
+      msg: 'Welcome 酒',
       essentialLinks: [
         {
           label: 'Core Docs',
@@ -75,7 +134,8 @@ export default {
           link: 'http://vuejs-templates.github.io/webpack/',
           icon: 'fa-file-text'
         }
-      ]
+      ],
+      query: ''
     }
   },
   methods: {
