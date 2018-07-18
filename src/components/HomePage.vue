@@ -21,8 +21,8 @@
           </v-ons-list-item>
         </v-ons-list>
     </div>
-    <v-ons-row>
-      <v-ons-col>
+    <v-ons-row v-masonry class="masonry-container" origin-left="true" item-selector=".item">
+      <v-ons-col v-masonry-tile class="item">
         <v-ons-card>
           <img src="../assets/sake.png" alt="Onsen UI" style="width: 100%">
           <div class="title">
@@ -40,7 +40,7 @@
           </div>
         </v-ons-card>
       </v-ons-col>
-      <v-ons-col>
+      <v-ons-col v-masonry-tile class="item">
         <v-ons-card>
           <img src="../assets/sake2.png" alt="Onsen UI" style="width: 100%">
           <div class="title">
@@ -57,10 +57,8 @@
             </v-ons-list>
           </div>
         </v-ons-card>
-        </v-ons-col>
-      </v-ons-row>
-      <v-ons-row>
-        <v-ons-col>
+      </v-ons-col>
+      <v-ons-col v-masonry-tile class="item">
         <v-ons-card>
           <img src="../assets/sake3.png" alt="Onsen UI" style="width: 100%">
           <div class="title">
@@ -68,7 +66,7 @@
           </div>
           <div class="content">
             <div>
-                <v-ons-icon style="color: red;" size="20px" icon="md-face"></v-ons-icon>
+              <v-ons-icon style="color: red;" size="20px" icon="md-face"></v-ons-icon>
               <v-ons-icon style="color: blue;" size="20px" icon="md-face"></v-ons-icon>
             </div>
             <v-ons-list>
@@ -78,7 +76,7 @@
           </div>
         </v-ons-card>
       </v-ons-col>
-      <v-ons-col>
+      <v-ons-col v-masonry-tile class="item">
         <v-ons-card>
           <img src="../assets/sake4.png" alt="Onsen UI" style="width: 100%">
           <div class="title">
@@ -97,7 +95,6 @@
         </v-ons-card>
       </v-ons-col>
     </v-ons-row>
-    
   </v-ons-page>
 </template>
 
@@ -138,6 +135,11 @@ export default {
       query: ''
     }
   },
+  mounted () {
+    if (typeof this.$redrawVueMasonry === 'function') {
+      this.$redrawVueMasonry()
+    }
+  },
   methods: {
     goTo (url) {
       window.open(url, '_blank')
@@ -170,5 +172,9 @@ ons-card {
 
 ons-list-item, ons-card {
   cursor: pointer;
+}
+
+.item {
+  width: 50%;
 }
 </style>

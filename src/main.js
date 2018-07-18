@@ -7,6 +7,7 @@ import Vue from 'vue'
 import VueOnsen from 'vue-onsenui'
 import store from './store'
 import App from './App'
+import {VueMasonryPlugin} from 'vue-masonry'
 
 import VueRouter from 'vue-router'
 import routes from './routes'
@@ -19,6 +20,7 @@ const router = new VueRouter({
 Vue.config.productionTip = false
 
 Vue.use(VueOnsen)
+Vue.use(VueMasonryPlugin)
 
 /* eslint-disable no-new */
 new Vue({
